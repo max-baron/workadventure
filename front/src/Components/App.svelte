@@ -11,10 +11,12 @@
     import {customCharacterSceneVisibleStore} from "../Stores/CustomCharacterStore";
     import CustomCharacterScene from "./CustomCharacterScene/CustomCharacterScene.svelte";
     import LoginScene from "./Login/LoginScene.svelte";
+    import Chat from "./Chat/Chat.svelte";
     import {loginSceneVisibleStore} from "../Stores/LoginSceneStore";
     import EnableCameraScene from "./EnableCamera/EnableCameraScene.svelte";
 
     import {Game} from "../Phaser/Game/Game";
+    import {chatVisibilityStore} from "../Stores/ChatStore";
     import {helpCameraSettingsVisibleStore} from "../Stores/HelpCameraSettingsStore";
     import HelpCameraSettingsPopup from "./HelpCameraSettings/HelpCameraSettingsPopup.svelte";
     import AudioPlaying from "./UI/AudioPlaying.svelte";
@@ -72,5 +74,8 @@
         <div>
             <HelpCameraSettingsPopup game={ game }></HelpCameraSettingsPopup>
         </div>
+    {/if}
+    {#if $chatVisibilityStore}
+        <Chat></Chat>
     {/if}
 </div>
